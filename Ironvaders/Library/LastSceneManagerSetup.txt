@@ -1,4 +1,10 @@
 sceneSetups:
 - path: Assets/FPS/Scenes/MainScene.unity
+<<<<<<< Updated upstream
   isLoaded: 1
   isActive: 1
+=======
+  isLoaded: 0
+  isActive: 0
+>>>>>>> Stashed changes
+  isSubScene: 0

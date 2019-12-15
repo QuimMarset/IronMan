@@ -13,16 +13,10 @@ public class PlayerInputHandler : MonoBehaviour
     [Tooltip("Used to flip the horizontal input axis")]
     public bool invertXAxis = false;
 
-    GameFlowManager m_GameFlowManager;
-    PlayerCharacterController m_PlayerCharacterController;
     bool m_FireInputWasHeld;
 
     private void Start()
     {
-        m_PlayerCharacterController = GetComponent<PlayerCharacterController>();
-        DebugUtility.HandleErrorIfNullGetComponent<PlayerCharacterController, PlayerInputHandler>(m_PlayerCharacterController, this, gameObject);
-        m_GameFlowManager = FindObjectOfType<GameFlowManager>();
-        DebugUtility.HandleErrorIfNullFindObject<GameFlowManager, PlayerInputHandler>(m_GameFlowManager, this);
 
         Cursor.lockState = CursorLockMode.Locked;
         Cursor.visible = false;
@@ -35,7 +29,7 @@ public class PlayerInputHandler : MonoBehaviour
 
     public bool CanProcessInput()
     {
-        return Cursor.lockState == CursorLockMode.Locked && !m_GameFlowManager.gameIsEnding;
+        return Cursor.lockState == CursorLockMode.Locked;
     }
 
     public Vector3 GetMoveInput()
